@@ -2,11 +2,11 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: 'index.js',
+    entry: './src/index.js',
     devtool: 'inline-source-map',
     output: {
-        __filename: 'bundle.js',
+        filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
+        //clean: true,
     },
 };
