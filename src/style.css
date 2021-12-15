@@ -1,6 +1,7 @@
 body {
     box-sizing: border-box;
     height: 100vh;
+    min-width: 810px;
     margin: 0px;
     display: flex;
     flex-direction: column;
@@ -8,6 +9,7 @@ body {
 }
 
 #navbar {
+    min-width: 810px;
     padding: 0px 30px 10px 30px;
     display: flex;
     flex-wrap: wrap;
@@ -46,6 +48,7 @@ ul {
 
 #content {
     width: 80vw;
+    min-width: 650px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
