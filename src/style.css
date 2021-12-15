@@ -1,0 +1,82 @@
+body {
+    box-sizing: border-box;
+    height: 100vh;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
+
+#navbar {
+    padding: 0px 30px 10px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex: 0 1 auto;
+    background-color: burlywood;
+    box-shadow: inset 0px 0px 30px 10px rgb(180, 150, 111);
+    font-size: 30px;
+}
+
+#navbar div {
+    display: flex;
+    align-items: center;
+}
+
+#logo{
+    font-size: 100px;
+}
+
+#title {
+    font-weight: bolder;
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8vw;
+    font-style: italic;
+}
+
+#content {
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+    flex: 1 1 auto;
+    background-color: rgb(160, 120, 68);
+    box-shadow: inset 0px 0px 70px 50px rgb(148, 111, 64);
+}
+
+#quotes {
+    width: 600px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgba(78, 9, 9);
+    border-radius: 5px;
+}
+
+.quote {
+    font-size: 30px;
+    font-style: oblique;
+}
+
+.name {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#steak-img {
+    height: fit-content;
+    width: fit-content;
+    border: 6px solid rgba(78, 9, 9);
+}
