@@ -38,11 +38,47 @@ const displayController = (function(){
     }
 
     const _createHome = function() {
+        const content = document.querySelector('#content');
+        content.textContent = '';
+
+        // Quotes
+
+        const quotes = document.createElement('div');
+        quotes.id = 'quotes';
+        const quote1 = [document.createElement('div'),
+                 document.createElement('div')];
+        const quote2 = [document.createElement('div'),
+                 document.createElement('div')];
+        quote1[0].classList.add('quote');
+        quote1[0].textContent = 'Greatest Steak in Steakland, bar none.';
+        quote1[1].classList.add('name');
+        quote1[1].textContent = '-Steak Weekly';
+        quotes.appendChild(quote1[0]);
+        quotes.appendChild(quote1[1]);
+        quote2[0].classList.add('quote');
+        quote2[0].textContent = `The meat is tender as the night. It's so soft,
+                 steak knives are optional.`;
+        quote2[1].classList.add('name');
+        quote2[1].textContent = '-Meat Lover Digest';
+        quotes.appendChild(quote2[0]);
+        quotes.appendChild(quote2[1]);
+        content.appendChild(quotes);
+
+        // Image
+
+        const mySteakImage = new Image();
+        mySteakImage.src = SteakImage;
+        mySteakImage.id = 'steak-img';
+        content.appendChild(mySteakImage);
+
 
     }
 
     const startPage = function() {
         _createNavbar();
+        const content = document.createElement('div');
+        content.id = 'content';
+        _body.appendChild(content);
         _createHome();
     }
     return {startPage};
