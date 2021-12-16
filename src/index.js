@@ -35,6 +35,10 @@ const displayController = (function(){
         navbar.appendChild(pageList);
 
         _body.appendChild(navbar);
+
+        home.addEventListener('click', _createHome);
+        menu.addEventListener('click', _createMenu);
+        contact.addEventListener('click', _createContact);
     }
 
     const _createHome = function() {
@@ -70,8 +74,16 @@ const displayController = (function(){
         mySteakImage.src = SteakImage;
         mySteakImage.id = 'steak-img';
         content.appendChild(mySteakImage);
+    }
 
+    const _createMenu = function() {
+        const content = document.querySelector('#content');
+        content.textContent = '';
+    }
 
+    const _createContact = function() {
+        const content = document.querySelector('#content');
+        content.textContent = '';
     }
 
     const startPage = function() {

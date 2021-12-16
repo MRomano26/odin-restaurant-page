@@ -46,6 +46,10 @@ ul {
     font-style: italic;
 }
 
+li {
+    cursor: pointer;
+}
+
 #content {
     width: 80vw;
     min-width: 650px;
