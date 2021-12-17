@@ -19,7 +19,7 @@ const contactCreator = (function() {
 
 const homeCreator = (function(){
     const _body = document.querySelector('body');
-    
+
     const _createNavbar = function() {
         const navbar = document.createElement('div');
         navbar.id = 'navbar';
@@ -51,16 +51,21 @@ const homeCreator = (function(){
         pageList.appendChild(contact);
         navbar.appendChild(pageList);
 
-        _body.appendChild(navbar);
+        return navbar;
+    }
 
-        home.addEventListener('click', _createHome);
-        menu.addEventListener('click', menuCreator.createMenu);
-        contact.addEventListener('click', contactCreator.createContact);
+    const _navbar = _createNavbar();
+
+    const _appendNavbar = function() {
+        _body.appendChild(_navbar);
+        const links = document.querySelectorAll('li');
+        links[0].addEventListener('click', _createHome);
+        links[1].addEventListener('click', menuCreator.createMenu);
+        links[2].addEventListener('click', contactCreator.createContact);
     }
 
     const _createHome = function() {
-        const content = document.querySelector('#content');
-        content.textContent = '';
+        const home = document.createElement('div');
 
         // Quotes
 
@@ -83,24 +88,34 @@ const homeCreator = (function(){
         quote2[1].textContent = '-Meat Lover Digest';
         quotes.appendChild(quote2[0]);
         quotes.appendChild(quote2[1]);
-        content.appendChild(quotes);
+        home.appendChild(quotes);
 
         // Image
 
         const mySteakImage = new Image();
         mySteakImage.src = SteakImage;
         mySteakImage.id = 'steak-img';
-        content.appendChild(mySteakImage);
+        home.appendChild(mySteakImage);
+
+        return home;
+    }
+
+    const _home = _createHome();
+
+    const appendHome = function() {
+        const content = document.querySelector('#content');
+        content.textContent = '';
+        content.appendChild(_home);
     }
 
     const startPage = function() {
-        _createNavbar();
+        _appendNavbar();
         const content = document.createElement('div');
         content.id = 'content';
         _body.appendChild(content);
-        _createHome();
+        appendHome();
     }
-    return {startPage};
+    return {startPage, appendHome};
 })();
 
 homeCreator.startPage();
