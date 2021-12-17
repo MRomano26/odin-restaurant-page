@@ -1,8 +1,25 @@
 import './style.css';
 import SteakImage from './assets/steak.avif';
 
-const displayController = (function(){
+const menuCreator = (function() {
+    const createMenu = function() {
+        const content = document.querySelector('#content');
+        content.textContent = '';
+    }
+    return {createMenu}
+})();
+
+const contactCreator = (function() {
+    const createContact = function() {
+        const content = document.querySelector('#content');
+        content.textContent = '';
+    }
+    return {createContact}
+})();
+
+const homeCreator = (function(){
     const _body = document.querySelector('body');
+    
     const _createNavbar = function() {
         const navbar = document.createElement('div');
         navbar.id = 'navbar';
@@ -37,8 +54,8 @@ const displayController = (function(){
         _body.appendChild(navbar);
 
         home.addEventListener('click', _createHome);
-        menu.addEventListener('click', _createMenu);
-        contact.addEventListener('click', _createContact);
+        menu.addEventListener('click', menuCreator.createMenu);
+        contact.addEventListener('click', contactCreator.createContact);
     }
 
     const _createHome = function() {
@@ -76,16 +93,6 @@ const displayController = (function(){
         content.appendChild(mySteakImage);
     }
 
-    const _createMenu = function() {
-        const content = document.querySelector('#content');
-        content.textContent = '';
-    }
-
-    const _createContact = function() {
-        const content = document.querySelector('#content');
-        content.textContent = '';
-    }
-
     const startPage = function() {
         _createNavbar();
         const content = document.createElement('div');
@@ -96,4 +103,4 @@ const displayController = (function(){
     return {startPage};
 })();
 
-displayController.startPage();
+homeCreator.startPage();
