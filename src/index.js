@@ -59,13 +59,14 @@ const homeCreator = (function(){
     const _appendNavbar = function() {
         _body.appendChild(_navbar);
         const links = document.querySelectorAll('li');
-        links[0].addEventListener('click', _createHome);
+        links[0].addEventListener('click', appendHome);
         links[1].addEventListener('click', menuCreator.createMenu);
         links[2].addEventListener('click', contactCreator.createContact);
     }
 
     const _createHome = function() {
         const home = document.createElement('div');
+        home.classList.add('page');
 
         // Quotes
 
