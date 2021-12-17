@@ -2,19 +2,39 @@ import './style.css';
 import SteakImage from './assets/steak.avif';
 
 const menuCreator = (function() {
-    const createMenu = function() {
+    const _createMenu = function() {
+        const menu = document.createElement('div');
+        menu.classList.add('page');
+
+        return menu;
+    }
+
+    const _menu = menuCreator();
+
+    const appendMenu = function() {
         const content = document.querySelector('#content');
         content.textContent = '';
     }
-    return {createMenu}
+
+    return {appendMenu}
 })();
 
 const contactCreator = (function() {
-    const createContact = function() {
+    const _createContact = function() {
+        const contact = document.createElement('div');
+        contact.classList.add('page');
+
+        return contact;
+    }
+
+    const _contact = _createContact();
+
+    const appendContact = function() {
         const content = document.querySelector('#content');
         content.textContent = '';
     }
-    return {createContact}
+
+    return {appendContact}
 })();
 
 const homeCreator = (function(){
@@ -60,8 +80,8 @@ const homeCreator = (function(){
         _body.appendChild(_navbar);
         const links = document.querySelectorAll('li');
         links[0].addEventListener('click', appendHome);
-        links[1].addEventListener('click', menuCreator.createMenu);
-        links[2].addEventListener('click', contactCreator.createContact);
+        links[1].addEventListener('click', menuCreator.appendMenu);
+        links[2].addEventListener('click', contactCreator.appendContact);
     }
 
     const _createHome = function() {
