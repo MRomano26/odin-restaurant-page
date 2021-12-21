@@ -4,16 +4,35 @@ import SteakImage from './assets/steak.avif';
 const menuCreator = (function() {
     const _createMenu = function() {
         const menu = document.createElement('div');
-        menu.classList.add('page');
+        menu.id = 'menu';
+
+        function createItem(name, price) {
+            const item = document.createElement('div');
+            item.classList.add('menu-item');
+
+            const itemName = document.createElement('div');
+            const itemPrice = document.createElement('div');
+            itemName.textContent = name;
+            itemPrice.textContent = price;
+            item.appendChild(itemName);
+            item.appendChild(itemPrice);
+            return item;
+        }
+
+        menu.appendChild(createItem('Steak', '30'));
+        menu.appendChild(createItem('Bigger Steak', '45'));
+        menu.appendChild(createItem('Massive Steak', '65'));
 
         return menu;
     }
 
-    const _menu = menuCreator();
+    const _menu = _createMenu();
 
     const appendMenu = function() {
         const content = document.querySelector('#content');
         content.textContent = '';
+
+        content.appendChild(_menu);
     }
 
     return {appendMenu}
@@ -86,7 +105,7 @@ const homeCreator = (function(){
 
     const _createHome = function() {
         const home = document.createElement('div');
-        home.classList.add('page');
+        home.id = 'home';
 
         // Quotes
 
