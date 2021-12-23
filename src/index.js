@@ -41,7 +41,34 @@ const menuCreator = (function() {
 const contactCreator = (function() {
     const _createContact = function() {
         const contact = document.createElement('div');
-        contact.classList.add('page');
+        contact.id = 'contact';
+        
+        function createAddress(street, city, country, postalcode) {
+            const address = document.createElement('div');
+            address.classList.add('address');
+            address.textContent = `${street}, ${city},
+                     ${country} ${postalcode}`;
+            return address;
+        }
+
+        function createManager(name, position, email, phone) {
+            const contact = document.createElement('div');
+            contact.classList.add('manager');
+
+            const line1 = document.createElement('div');
+            line1.textContent = `${name}, ${position}`
+            contact.appendChild(line1);
+            const line2 = document.createElement('div');
+            line2.textContent = `${email} - ${phone}`;
+            contact.appendChild(line2);
+
+            return contact;
+        }
+
+        contact.appendChild(createAddress('150 Steak Avenue',
+                 'Steak City', 'SK', 'S7E 4K5'));
+        contact.appendChild(createManager('Tony Beefmen', 'Restaurant Manager',
+                 'tony.beefmen@gmail.com', 't. 1 800 XXX XXXX'));
 
         return contact;
     }
@@ -51,6 +78,8 @@ const contactCreator = (function() {
     const appendContact = function() {
         const content = document.querySelector('#content');
         content.textContent = '';
+
+        content.appendChild(_contact);
     }
 
     return {appendContact}
